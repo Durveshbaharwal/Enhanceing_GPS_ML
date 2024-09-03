@@ -1,4 +1,4 @@
-# Least Squares Solution from GNSS Derived Data
+# Enhancing GPS Positioning Accuracy Using Machine Learning
 
 ## Overview
 
