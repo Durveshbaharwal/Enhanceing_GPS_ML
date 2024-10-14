@@ -24,7 +24,7 @@ This project implements a **Least Squares Solution** approach using data derived
 
 3. **Running the script**: Execute the Python script:
     ```bash
-    main.ipynb
+    jupyter notebook main.ipynb
     ```
 
 ## Usage
