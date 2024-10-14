@@ -14,10 +14,9 @@ This project implements a **Least Squares Solution** approach using data derived
 
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/Durveshbaharwal/YourRepositoryName.git
-    cd YourRepositoryName
+    git clone https://github.com/Durveshbaharwal/Enhanceing_GPS_ML.git
+    cd Enhanceing_GPS_ML
     ```
-
 2. **Dependencies**: Ensure you have the required dependencies installed. You can install them using:
     ```bash
     pip install -r requirements.txt
