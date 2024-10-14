@@ -24,7 +24,7 @@ This project implements a **Least Squares Solution** approach using data derived
 
 3. **Running the script**: Execute the Python script:
     ```bash
-    python least_squares_solution_from_gnss_derived_data_copy1.py
+    main.ipynb
     ```
 
 ## Usage
@@ -33,30 +33,6 @@ This project implements a **Least Squares Solution** approach using data derived
 - Applies the least squares method to estimate positions.
 - Outputs the refined positions along with error metrics.
 
-### Example
-
-Here’s an example of how to use the script:
-```python
-import least_squares_solution_from_gnss_derived_data_copy1 as lss
-
-# Load your GNSS data
-data = lss.load_data('path_to_your_data_file')
-
-# Run the least squares solution
-results = lss.least_squares_estimation(data)
-
-# Output the results
-lss.print_results(results)
-```
-
-## Contributing
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch (git checkout -b feature-branch).
-3. Commit your changes (git commit -m 'Add new feature').
-4. Push to the branch (git push origin feature-branch).
-5. Open a Pull Request.
 
 ## Contact
 For any questions, feel free to reach out via LinkedIn or open an issue on the repository.
