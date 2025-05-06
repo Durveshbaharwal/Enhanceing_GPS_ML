@@ -30,16 +30,15 @@ jobs:
         FILE="progress_log.txt"
         COUNT=$(( ( RANDOM % 16 ) + 5 ))  # Random number between 5 and 20
         for i in $(seq 1 $COUNT); do
-          echo "Fake Commit $i on $(date)" >> $FILE
+          echo "Fake Commit $i on $(date +'%Y-%m-%d %H:%M:%S') -- $RANDOM" >> $FILE
           git add $FILE
-
-          # Generate random past time today
+    
           COMMIT_TIME=$(date -d "$((RANDOM % 720)) minutes ago" +"%Y-%m-%dT%H:%M:%S")
-
-          # Commit with spoofed timestamp
+    
           GIT_AUTHOR_DATE="$COMMIT_TIME" GIT_COMMITTER_DATE="$COMMIT_TIME" \
-          git commit -m "Spoofed commit $i"
+          git commit -m "Spoofed commit $i" || echo "No changes to commit for $i"
         done
+
 
     - name: Push to repo
       run: git push
