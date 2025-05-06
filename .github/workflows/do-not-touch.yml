@@ -1,12 +1,16 @@
 name: Daily Spoof Commits
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     - cron: "0 4 * * *"
     - cron: "0 9 * * *"
     - cron: "0 14 * * *"
-    - cron: "0 20 * * *" # Runs every day at 07:00 UTC (adjust if needed)
-  workflow_dispatch:     # Allows manual run
+    - cron: "0 20 * * *"
+  workflow_dispatch:
+
 
 jobs:
   spoof-commits:
