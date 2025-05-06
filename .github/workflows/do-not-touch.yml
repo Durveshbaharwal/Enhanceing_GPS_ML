@@ -1,0 +1,41 @@
+name: Daily Spoof Commits
+
+on:
+  schedule:
+    - cron: "0 4 * * *"
+    - cron: "0 9 * * *"
+    - cron: "0 14 * * *"
+    - cron: "0 20 * * *" # Runs every day at 07:00 UTC (adjust if needed)
+  workflow_dispatch:     # Allows manual run
+
+jobs:
+  spoof-commits:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Git
+      run: |
+        git config user.name "Durveshbaharwal"
+        git config user.email "durveshbaharwal@gmail.com"
+
+    - name: Generate 5–20 fake commits with realistic timestamps
+      run: |
+        FILE="progress_log.txt"
+        COUNT=$(( ( RANDOM % 16 ) + 5 ))  # Random number between 5 and 20
+        for i in $(seq 1 $COUNT); do
+          echo "Fake Commit $i on $(date)" >> $FILE
+          git add $FILE
+
+          # Generate random past time today
+          COMMIT_TIME=$(date -d "$((RANDOM % 720)) minutes ago" +"%Y-%m-%dT%H:%M:%S")
+
+          # Commit with spoofed timestamp
+          GIT_AUTHOR_DATE="$COMMIT_TIME" GIT_COMMITTER_DATE="$COMMIT_TIME" \
+          git commit -m "Spoofed commit $i"
+        done
+
+    - name: Push to repo
+      run: git push
